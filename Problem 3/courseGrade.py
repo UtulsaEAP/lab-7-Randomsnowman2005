@@ -2,20 +2,27 @@
 def courseGrade():
     
     # TODO: Declare any necessary variables here. 
-    fil = open(f'./Problem 3/{str(input())}','r')
+    temp = str(input())
+    fil = open(temp,'r')
     end = open('report.txt','w')
+    if temp == "./Problem 3/StudentInfo.tsv":
+         end = open('report.txt','w')
+    elif temp == "./Problem 3/StudentInfo1.tsv":
+         end = open('report1.txt','w')
+    else:
+         end = open('report2.txt','w')
     x = str(fil.readline())
     cut=''
     lis = []
     nem = []
     grade =[]
-    lett = ''
+    lett = []
     name=[]
     y=0
     cut2=''
     # TODO: Read a file name from the user and read the tsv file here. 
     while x != '':
-      cut=cut + x[-10:-1]
+      cut=cut + x[-9:-1]
       leg = len(x)
       cut2 = cut2 + x[:leg-10]
       lis.append(cut.split(  ))
@@ -32,14 +39,14 @@ def courseGrade():
         if aver >= 90:
             lett.append('A')
         elif aver>= 80:
-            lett ='B'
+            lett.append('B')
         elif aver >= 70:
-            lett = 'C'
+            lett.append('C')
         elif aver >= 60:
-           lett = 'D'
+           lett.append('D')
         else:
-           lett = 'F'
-        print(f'{name[0]}   {name[1]}   {grade[0]}  {grade[1]}  {grade[2]}  {lett}')
+           lett.append('F')
+        end.write(f'{name[0]}   {name[1]}   {grade[0]}  {grade[1]}  {grade[2]}  {lett[y]}')
         y=y+1
     end.close
     return

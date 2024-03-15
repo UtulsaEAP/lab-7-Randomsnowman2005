@@ -1,9 +1,8 @@
 #Mohamad Ali Fakhoury Thurs@2pm
 def wordInRange():
-    file = open('./Problem 2/input1.txt','r')
-    min = 'ammoniated'
-    max = 'millennium'
-    x= file.readline()
+    file = open(str(input()),'r')
+    min = str(input())
+    max = str(input())
     lines = file.readlines()
     for line in lines:
         lin = line.strip('\n')
